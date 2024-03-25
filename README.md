@@ -47,6 +47,6 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 |---|-----|---|
 |1|<img width="600" alt="스크린샷 2024-03-25 오후 5 08 39" src="https://github.com/FutureMaker0/django_webex/assets/120623320/e88026dd-9d68-4a36-b6cd-7161b4084c32">||
 
-
+- Member(회원): name, address, List<Orders> 를 가진다.
 
   
