@@ -33,8 +33,8 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - 상품 주문 시 배송 정보를 입력할 수 있다.
    
 ## 도메인 모델과 테이블 간단 설계
-  |---|-----|---|
-  |1|<img width="663" alt="스크린샷 2024-03-25 오후 4 05 18" src="https://github.com/FutureMaker0/django_webex/assets/120623320/b50d307c-7e30-4c20-8fe9-48e06fb276bb">||
+|---|-----|---|
+|1|<img width="663" alt="스크린샷 2024-03-25 오후 4 05 18" src="https://github.com/FutureMaker0/django_webex/assets/120623320/b50d307c-7e30-4c20-8fe9-48e06fb276bb">||
 
 
 
