@@ -45,7 +45,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 ## 엔티티 분석
 |순번|이미지|비고|
 |:---:|:-----:|:---:|
-|1|<img width="600" alt="스크린샷 2024-03-25 오후 5 08 39" src="https://github.com/FutureMaker0/django_webex/assets/120623320/e88026dd-9d68-4a36-b6cd-7161b4084c32">||
+|1|<img width="500" alt="스크린샷 2024-03-25 오후 5 08 39" src="https://github.com/FutureMaker0/django_webex/assets/120623320/e88026dd-9d68-4a36-b6cd-7161b4084c32">||
 
 - Member(회원): name, address, List<Orders> 를 가진다.
 - Order(주문): 주문과 상품(주문상품)은 일대다 관계다. 주문은 주문의 주체인 회원정보, 배송정보, 주문날짜, 주문상태를 데이터를 가진다. 주문상태는 ENUM 타입으로 정의하며 [ORDER, CANCEL] 두 가지 상태를 가진다.
@@ -58,7 +58,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 ## 테이블 분석 - 실제 DB에 생성될 테이블과 인스턴스
 |순번|이미지|비고|
 |:---:|:-----:|:---:|
-|1|<img width="953" alt="스크린샷 2024-03-26 오전 11 58 02" src="https://github.com/FutureMaker0/django_webex/assets/120623320/71543f72-0ffa-44ea-bf46-2ba60bcef8ed">||
+|1|<img width="500" alt="스크린샷 2024-03-26 오전 11 58 02" src="https://github.com/FutureMaker0/django_webex/assets/120623320/71543f72-0ffa-44ea-bf46-2ba60bcef8ed">||
 
 
 
