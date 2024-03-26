@@ -3,7 +3,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 
 ## 엔티티
   - Member
-  - Product(pc, labtop, tablet)
+  - Product(Food, Book, Concert)
   - Category
   - Order
   - Delivery
@@ -84,7 +84,19 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - Order <> OrderITem:
   - Order <> Delivery: 
 
-
+#### 상속구조 관련 테이블 맵핑 전략 (Product: Food, Book, Concert)
+  @Inheritance(strategy = InheritanceType.SINGLE_TABLE):
+    - 상속 구조를 단일 테이블로 매핑할 때 사용
+    - 모든 서브 클래스의 필드들을 한 테이블에 통합하여 저장
+    - 이 테이블에는 구분 컬럼(discriminator column)이 포함되어 있어, 어떤 클래스의 데이터인지를 식별
+    - 장점은 테이블 간의 조인이 필요 없어 성능이 좋으며, 단순한 구조를 가짐. 하지만, 데이터가 많아지면 성능에 영향을 줄 수 있음
+  
+  @DiscriminatorColumn(name = "dtype"):
+    - 단일 테이블 전략을 사용할 때, 부모 클래스와 서브 클래스를 구분하는 역할
+    - "dtype" 컬럼을 통해 각 레코드가 어떤 서브 클래스에 속하는지를 구분
+    - 부모 클래스와 서브 클래스 간의 차이점을 저장, 서브 클래스마다 고유한 속성이 있을 때 사용
+    - 이를 통해 JPA가 올바른 서브 클래스를 인스턴스화하고 매핑할 수 있도록 해줌
+    - 이러한 어노테이션들을 사용하여 단일 테이블 전략을 적용하면, 하나의 테이블에 모든 클래스의 데이터가 저장되고, 이를 구분하기 위해 discriminator 컬럼이 사용됨. 상속 구조를 데이터베이스에 매핑하는 일반적인 방법
 
 
 
