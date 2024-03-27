@@ -120,6 +120,15 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - cascade 옵션은 상위 엔티티 클래스 내부에서 하위 인스턴스 선언 시 그 위에 어노테이션 옵션으로 넣는다. ex) Order, OrderProduct 가 있으면 List<OrderProduct> orderproducts 위에 옵션으로 넣는다. 
   - null exception 방지를 위해 collection은 필드에서 바로 초기화한다.
 
+### Application Architeuture
+|순번|이미지|비고|
+|:---:|:-----:|:---:|
+||<img width="721" alt="스크린샷 2024-03-27 오후 3 14 03" src="https://github.com/FutureMaker0/django_webex/assets/120623320/92179343-f546-4e54-af27-699df9ae8eb3">||
+
+
+
+
+
 
 
 
