@@ -19,14 +19,14 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderProduct> orderProducts = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
@@ -37,11 +37,19 @@ public class Order {
 
 
     //== 연관관계 메서드 ==//
-//    public void syncMember(Member member) {
-//        this.member = member;
-//        member.getOrders().add(this);
-//    }
+    public void syncMember(Member member) {
+        this.member = member;
+        member.getOrders().add(this);
+    }
 
+    public void addOrderProduct(OrderProduct orderProduct) {
+        orderProducts.add(orderProduct);
+        orderProduct.setOrder(this);
+    }
 
+    public void syncDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
 
 }

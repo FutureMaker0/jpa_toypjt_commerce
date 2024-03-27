@@ -3,7 +3,6 @@ package jpa.commerce.domain;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import lombok.Getter;
-import lombok.Setter;
 
 @Embeddable
 @Getter
