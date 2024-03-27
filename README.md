@@ -123,7 +123,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 ### Application Architeuture
 |순번|이미지|비고|
 |:---:|:-----:|:---:|
-||<img width="721" alt="스크린샷 2024-03-27 오후 3 14 03" src="https://github.com/FutureMaker0/django_webex/assets/120623320/92179343-f546-4e54-af27-699df9ae8eb3">||
+||<img width="500" alt="스크린샷 2024-03-27 오후 3 14 03" src="https://github.com/FutureMaker0/django_webex/assets/120623320/92179343-f546-4e54-af27-699df9ae8eb3">||
 
 
 
