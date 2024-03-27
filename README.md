@@ -114,6 +114,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - @Setter는 향후 유지보수성을 위해 무분별하게 사용하지 않는 것이 좋지만, 당 프로젝트에서는 효율성을 위해 사용
   - __ToOne(OneToOne, ManyToOne) 관계는 디폴트 값으로 즉시로딩하므로, 직접 설정을 통해 지연로딩(FetchType.LAZY)로 설정해준다.
   - cascade = Cascade.ALL 옵션을 통해 특정 엔티티가 persist 되면, 하위에 들어가 있는 개념들은 자동으로 함께 persist가 되도록 한다. 향후 리포지토리 개발에서 메소드 중복 호출을 방지할 수 있다.(최상위 엔티티만 해주면 된다.)
+    - cascade 옵션은 상위 엔티티 클래스 내부에서 하위 인스턴스 선언 시 그 위에 어노테이션 옵션으로 넣는다. ex) Order, OrderProduct 가 있으면 List<OrderProduct> orderproducts 위에 옵션으로 넣는다. 
   - null exception 방지를 위해 collection은 필드에서 바로 초기화한다.
 
 
