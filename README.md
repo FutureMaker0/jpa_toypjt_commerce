@@ -140,7 +140,11 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
         - web
         - exception
 
-
+## 웹 애플리케이션 개발
+### 자주 쓰는 @어노테이션
+  - @Repository: 리포지토리 클래스를 스프링 빈으로 등록, JPA Exception을 스프링 기반 Exception으로 변환
+  - @PersistenceContext: EntityManager 주입(Injection)
+  - @PersistenceUnit: EntityManagerFactory 주입
 
 
 
