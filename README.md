@@ -165,6 +165,9 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - @SpringBootTest: test 코드 상단에 기본 값으로 넣어주는 어노테이션, SpringBoot 띄우고 테스트(@Autowired 활성화를 위해 반드시 필요)
   - @RunWith(SpringRunner.class): 스프링과 테스트 통합하여 진행
 
+### 기타, 개발 시 참고사항 및 주의사항
+  - repository 내 메서드 정의 시, EntityManager를 통한 persist() / merge() 를 적절히 구분하여 활용 필요. 데이터베이스 저장 유무에 따라 어떤 것을 사용할지 결정. 보통 merge()는 실무에서 많이 사용하진 않는다.
+
 
 
 
