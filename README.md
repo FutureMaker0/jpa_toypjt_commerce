@@ -159,6 +159,9 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - @Transactional:
     - readOnly = true: 데이터 변경이 없는 읽기 전용 메서드 위에 사용. flush()가 일어나지 않으므로 약간의 성능향상을 기대할 수 있음.(읽기 전용 메서드에는 디폴트로 적용하는 것을 권장)
     - readOnly = false: 데이터 변경이 있는 경우 사용
+    - test 메서드에서 @Transactional은 일반 메서드에서와 조금 다르게 동작한다. 디폴트 동작값으로 트랜잭션이 "RollBack" 된다. --> 테스트 코드에 한해서 반복 가능한 테스트 지원.
+  - @SpringBootTest: test 코드 상단에 기본 값으로 넣어주는 어노테이션, SpringBoot 띄우고 테스트(@Autowired 활성화를 위해 반드시 필요)
+  - @RunWith(SpringRunner.class): 스프링과 테스트 통합하여 진행
 
 
 
