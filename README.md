@@ -128,7 +128,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 - 계층형 구조 및 TDD, 리포지토리-서비스 개발 후 테스트 코드 통한 로직 검증하여 최종 웹 계층까지 개발
   - Domain: 엔티티를 정의한 계층, 모든 계층에서 사용
   - Repository: JPA를 직접 사용하여 로직을 만드는 계층, EntityManager 사용
-  - Service: transaction 처리, 비즈니스 로직
+  - Service: transaction 처리, 비즈니스 로직, Repository와 거의 유사함. 단순히 리포지토리 쪽으로 위임해주는 클래스
   - Controller: Web(url mapping) 계층
  
 - 프로젝트 패키지 구조
