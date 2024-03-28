@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 @RequiredArgsConstructor // @Autowired보다 이 어노테이션을 통한 생성자 주입이 더 효율적이다.
 public class MemberService {
 
@@ -19,6 +19,7 @@ public class MemberService {
     /**
      * 회원가입
      */
+    @Transactional
     public Long regist(Member member) {
 
         isDuplicateMember(member);
