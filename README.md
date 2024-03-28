@@ -147,7 +147,9 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - @PersistenceUnit: EntityManagerFactory 주입
   - @Autowired: 스프링 필드 주입 시 사용, 이 방법을 쓰기보다는 생성자 주입을 사용하는 것이 좋다.
   - @RequiredArgsConstructor: 생성자 주입 방식, private final 등 final 키워드 추가를 통해 컴파일 시점에 memberRepository를 설정하지 않아 발생하는 오류를 체크할 수 있다. (보통 기본 생성자 추가 시 오류 발견)
-
+  - @Transactional:
+    - readOnly = true: 데이터 변경이 없는 읽기 전용 메서드 위에 사용. flush()가 일어나지 않으므로 약간의 성능향상을 기대할 수 있음.(읽기 전용 메서드에는 디폴트로 적용하는 것을 권장)
+    - readOnly = false: 데이터 변경이 있는 경우 사용
 
 
 
