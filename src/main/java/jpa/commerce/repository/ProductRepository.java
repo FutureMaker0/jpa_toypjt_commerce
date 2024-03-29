@@ -1,6 +1,7 @@
 package jpa.commerce.repository;
 
 import jakarta.persistence.EntityManager;
+import jpa.commerce.domain.product.Concert;
 import jpa.commerce.domain.product.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -31,6 +32,13 @@ public class ProductRepository {
         return em.createQuery(
                 "select p from Product p"
         ).getResultList();
+    }
+
+    public List<Product> findProductByName(String name) {
+        return em.createQuery(
+                "select p from Product p where p.name = :name")
+                .setParameter("name", name)
+                .getResultList();
     }
 
 }

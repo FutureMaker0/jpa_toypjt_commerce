@@ -22,9 +22,7 @@ public abstract class Product {
     private Long id;
 
     private String name;
-
     private int price;
-
     private int stockQuantity;
 
     @ManyToMany(mappedBy = "products")
@@ -32,8 +30,7 @@ public abstract class Product {
 
 
     //== 비즈니스 로직 ==// 비즈니스 로직의 적절한 위치에 대해서는 충분한 고민이 필요.
-
-    // 주문취소 시 재고수량 원복
+    // 재고충당 및 주문취소 시 재고수량 원복
     public void plusStock(int stockQuantity) {
         this.stockQuantity += stockQuantity;
     }

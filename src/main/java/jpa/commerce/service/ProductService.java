@@ -1,5 +1,7 @@
 package jpa.commerce.service;
 
+import jpa.commerce.domain.Category;
+import jpa.commerce.domain.product.Concert;
 import jpa.commerce.domain.product.Product;
 import jpa.commerce.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +22,22 @@ public class ProductService {
      */
     @Transactional
     public void registProduct(Product product) {
+        //isDuplicateProduct(product);
         productRepository.regist(product);
+    }
+
+//    private void isDuplicateProduct(Product product) {
+//        List<Product> findProducts = productRepository.findProductByName(product.getName());
+//        if (!findProducts.isEmpty()) {
+//            throw new IllegalStateException("이미 등록된 상품입니다.");
+//        }
+//    }
+
+    /**
+     * 개별 상품 조회 - id값 활용
+     */
+    public Product findProductById(Long productId) {
+        return productRepository.findProductById(productId);
     }
 
     /**
@@ -28,13 +45,6 @@ public class ProductService {
      */
     public List<Product> findAllProducts() {
         return productRepository.findAllProducts();
-    }
-
-    /**
-     * 개별 상품 조회 - id값 활용
-     */
-    public Product findProductById(Long productId) {
-        return productRepository.findProductById(productId);
     }
 
 }
