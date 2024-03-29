@@ -135,6 +135,19 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - jpa
     - commerce
         - domain
+          - product
+            - Product
+            - Food
+            - Book
+            - Concert
+          - Address
+          - Category
+          - Delivery
+          - DeliveryStatus
+          - Member
+          - Order
+          - OrderProduct
+          - OrderStatus
         - repository
           - MemberRepository
             - save()
@@ -142,11 +155,19 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
             - findAllMembers()
             - findMemberNyName()
           - ProductRepository()
+            - regist()
+            - findProductById()
+            - findAllProducts()
+            - findProductByName()
         - service
           - MemberService
             - regist()-isDuplicateMember()
             - findAllMembers()
             - findMemberById()
+          - ProductService
+            - registProduct()-isDuplicateProduct()
+            - findProductById()
+            - findAllProducts()
         - web
         - exception
           - StockUnderZeroException()
