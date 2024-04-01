@@ -14,7 +14,7 @@ public class MemberRepository {
     EntityManager em;
 
     // 멤버 저장
-    public void save(Member member) {
+    public void regist(Member member) {
         em.persist(member);
     }
 

@@ -29,7 +29,7 @@ public class MemberServiceTest {
         member.setName("testName1");
 
         //when
-        Long registedId = memberService.regist(member);
+        Long registedId = memberService.registMember(member);
 
         //then
         //assertThat(registedId).isEqualTo(member.getId());
@@ -45,8 +45,8 @@ public class MemberServiceTest {
         member2.setName("testName2");
 
         //when
-        memberService.regist(member1);
-        memberService.regist(member2);
+        memberService.registMember(member1);
+        memberService.registMember(member2);
 
         //then
         fail("테스트 검증에 실패하고 예외가 발생해야 한다. 아직 커스텀 예외 정의하지 않음.");

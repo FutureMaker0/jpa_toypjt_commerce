@@ -3,7 +3,6 @@ package jpa.commerce.service;
 import jpa.commerce.domain.Member;
 import jpa.commerce.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,10 +19,10 @@ public class MemberService {
      * 회원가입
      */
     @Transactional
-    public Long regist(Member member) {
+    public Long registMember(Member member) {
 
         isDuplicateMember(member);
-        memberRepository.save(member);
+        memberRepository.regist(member);
         return member.getId();
     }
 
