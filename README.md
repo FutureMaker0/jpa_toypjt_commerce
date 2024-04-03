@@ -200,8 +200,11 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 
 ## 웹 애플리케이션 개발
 ### 자주 쓰는 @어노테이션
+  - @Autowired: Spring 프레임워크에서 사용되며, 주로 Service, Repository, Controller와 같은 스프링 빈을 주입할 떄 사용된다. EntityManager를 주입받을 때도 물론 사용이 가능하다.
   - @Repository: 리포지토리 클래스를 스프링 빈으로 등록, JPA Exception을 스프링 기반 Exception으로 변환
-  - @PersistenceContext: EntityManager 주입(Injection)
+  - @Service:
+  - @Controller: 
+  - @PersistenceContext: EntityManager 주입(Injection) 받을때 쓴다. JPA를 사용할 시, jpa 관련 기능을 사용하는 클래스에서 EntityManager를 주입받을 때 사용된다.
   - @PersistenceUnit: EntityManagerFactory 주입
   - @Autowired: 스프링 필드 주입 시 사용, 이 방법을 쓰기보다는 생성자 주입을 사용하는 것이 좋다.
   - @RequiredArgsConstructor: 생성자 주입 방식, private final 등 final 키워드 추가를 통해 컴파일 시점에 memberRepository를 설정하지 않아 발생하는 오류를 체크할 수 있다. (보통 기본 생성자 추가 시 오류 발견)
