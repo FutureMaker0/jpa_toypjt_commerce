@@ -151,6 +151,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
               - Order
               - OrderProduct
               - OrderStatus
+              - OrderSearch
             - repository
               - MemberRepository
                 - save()
@@ -195,6 +196,8 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
               - 테스트_중복상품_검증()
             - OrderServiceTest
               - 테스트_상품주문()
+              - 테스트_상품주문_재고수량초과()
+              - 테스트_주문취소
           - CommerceApplicationTests
     - resource
       - application.yml
