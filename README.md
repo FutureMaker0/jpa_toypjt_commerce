@@ -235,6 +235,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     --> 도메인 엔티티 내 존재하는 로직들: 연관관계 메서드, 생성 메서드, 핵심 비즈니스 로직
   - 테스트 검증에서 assertEqual 사용 시, 기댓값으로는 왠만하면 상수를 사용해주도록 하자.
   - queryDSL 라이브러리 추가: build.gradle 파일에 queryDSL 관련 코드 implements 해준 다음 빌드하여 적용, 이후 gradle -> Tasks -> other -> compile.Java. 지정한 루트(src/main/generated)에 Qfile 생성확인.
+  - QEntity의 경우 빌드 시 생성되므로 .gitignore 통해 git push 에서 제외시켜준다.
 
 
 
