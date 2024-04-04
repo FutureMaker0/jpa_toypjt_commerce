@@ -28,15 +28,17 @@ public class OrderService {
     @Transactional(readOnly = false)
     public Long registOrder(Long memberId, Long ProductId, int count) {
         // 주문자, 상품을 최우선적으로 조회해서 그 정보값을 갖고 있는다.
+
         // Member entity 조회 - Long memberId로 조회
         Member member = memberRepository.findMemberById(memberId);
+
         // Product entity 조회 - Long ProductId로 조회
         Product product1 = productRepository.findProductById(ProductId);
-        Product product2 = productRepository.findProductById(ProductId);
+        //Product product2 = productRepository.findProductById(ProductId);
 
         // OrderProduct(주문상품) 조회 및 생성
         OrderProduct orderProduct1 = OrderProduct.createOrderProduct(product1, product1.getPrice(), count);
-        OrderProduct orderProduct2 = OrderProduct.createOrderProduct(product2, product2.getPrice(), count);
+        //OrderProduct orderProduct2 = OrderProduct.createOrderProduct(product2, product2.getPrice(), count);
 
 //        List<OrderProduct> orderProducts = new ArrayList<>();
 //        for (OrderProduct orderProduct : orderProducts) {
@@ -49,7 +51,8 @@ public class OrderService {
         delivery.setDeliveryStatus(DeliveryStatus.READY);
 
         // Order(주문) 정보 생성
-        Order order = Order.createOrder(member, delivery, orderProduct1, orderProduct2);
+        Order order = Order.createOrder(member, delivery, orderProduct1);
+        //Order order = Order.createOrder(member, delivery, orderProduct1, orderProduct2);
         // Order.createOrder(member, delivery, orderProducts); //List<> 형태 파라미터 전달은 ...문법으로 안됨, 개별 전달만 가능)
 
         // 생성한 정보들을 가지고 최종 주문 등록
