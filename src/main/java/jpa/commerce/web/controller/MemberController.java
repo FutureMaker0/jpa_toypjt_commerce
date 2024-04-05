@@ -40,7 +40,7 @@ public class MemberController {
         member.setAddress(address);
         memberService.registMember(member);
 
-        return "redirect:/";
+        return "redirect:/members";
     }
 
     @GetMapping("/members")

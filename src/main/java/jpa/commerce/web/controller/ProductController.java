@@ -1,6 +1,7 @@
 package jpa.commerce.web.controller;
 
 import jpa.commerce.domain.product.Concert;
+import jpa.commerce.domain.product.Product;
 import jpa.commerce.service.ProductService;
 import jpa.commerce.web.form.ConcertDataForm;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -39,5 +42,11 @@ public class ProductController {
         return "redirect:/products";
     }
 
+    @GetMapping("/products")
+    public String productList(Model model) {
+        List<Product> allProducts = productService.findAllProducts();
+        model.addAttribute("allProducts", allProducts);
+        return "products/productList";
+    }
 
 }
