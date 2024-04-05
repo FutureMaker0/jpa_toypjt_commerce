@@ -6,10 +6,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MemberForm {
+public class MemberDataForm {
 
     @NotEmpty(message = "회원 이름은 필수 입력사항 입니다.")
-    private String memberName;
+    private String name;
 
     private String country;
     private String city;

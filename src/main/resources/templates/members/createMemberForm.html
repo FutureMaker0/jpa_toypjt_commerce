@@ -9,13 +9,13 @@
   <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
 
-    <form role="form" action="/members/regist" th:object="${memberForm}" method="post">
+    <form role="form" action="/members/regist" th:object="${memberDataForm}" method="post">
 
       <div class="form-group">
-        <label th:for="memberName">회원이름</label>
-        <input type="text" th:field="*{memberName}" class="form-control" placeholder="회원 이름을 입력하세요."
-        th:class="${#fields.hasErrors('memberName')}? 'form-control fieldError' : 'form-control'">
-        <p th:if="${#fields.hasErrors('memberName')}" th:errors="*{memberName}">올바르지 않은 정보입니다.</p>
+        <label th:for="name">회원이름</label>
+        <input type="text" th:field="*{name}" class="form-control" placeholder="회원 이름을 입력하세요."
+        th:class="${#fields.hasErrors('name')}? 'form-control fieldError' : 'form-control'">
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">올바르지 않은 정보입니다.</p>
       </div>
 
       <div class="form-group">
