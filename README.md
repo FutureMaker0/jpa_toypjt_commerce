@@ -181,6 +181,11 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
                 - cancelOrder()
                 - findOrdersBySearchOption()
             - web
+              - controller
+                - HomeController
+                - MemberController
+              - form
+                - MemberDataForm
             - exception
               - StockUnderZeroException()
   - test
@@ -224,6 +229,11 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 
 ### 서비스 개발
   - OrderService(주문 서비스)는, 주문(Order) 엔티티와 주문상품(OrderProduct) 엔티티 내 비즈니스 로직을 사용하여 주문 "등록", 주문 "취소", 조건에 따른 주문 "검색" 기능을 제공한다.
+
+### thymeleaf 관련 사항
+  - 타임리프에서 ?를 사용할 경우 null 값을 무시한다.
+  - 데이터 가공을 위한 Form을 만드느냐 마느냐는 상황에 따라 다르다. 그러나 엔티티가 렌더링하는 화면에 종속적으로 변하면 지저분해진 엔티티는 유지보수가 어렵게 된다. 엔티티는 핵심 비즈니스 로직까지만 가지고 있으면서, 화면을 위한 로직은
+    가급적 Form 또는 DTO를 통해 가공하여 사용하는 것이 좋다.
 
 ### 기타, 개발 시 참고사항 및 주의사항
   - repository 내 메서드 정의 시, EntityManager를 통한 persist() / merge() 를 적절히 구분하여 활용 필요. 데이터베이스 저장 유무에 따라 어떤 것을 사용할지 결정. 보통 merge()는 실무에서 많이 사용하진 않는다.
