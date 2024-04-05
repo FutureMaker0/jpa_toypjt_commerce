@@ -1,5 +1,6 @@
 package jpa.commerce.web.controller;
 
+import jpa.commerce.domain.product.Book;
 import jpa.commerce.domain.product.Concert;
 import jpa.commerce.domain.product.Product;
 import jpa.commerce.service.ProductService;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -48,5 +51,31 @@ public class ProductController {
         model.addAttribute("allProducts", allProducts);
         return "products/productList";
     }
+
+    @GetMapping("/products/{productId}/edit")
+    public String updateForm(@PathVariable("productId") Long productId, Model model) {
+        Concert findProduct = (Concert) productService.findProductById(productId); //형변환
+        ConcertDataForm concertDataForm = new ConcertDataForm();
+        concertDataForm.setName(findProduct.getName());
+        concertDataForm.setPrice(findProduct.getPrice());
+        concertDataForm.setStockQuantity(findProduct.getStockQuantity());
+        concertDataForm.setDirector(findProduct.getDirector());
+        concertDataForm.setActor(findProduct.getActor());
+
+        model.addAttribute("concertDataForm", concertDataForm);
+        return "products/UpdateProductForm";
+    }
+
+    @PostMapping("/products/{productId}/edit")
+    public String updateProduct(@PathVariable("productId") Long productId, @ModelAttribute("concertDataForm") ConcertDataForm concertDataForm) {
+        productService.updateProduct(productId,
+                concertDataForm.getName(),
+                concertDataForm.getPrice(),
+                concertDataForm.getStockQuantity(),
+                concertDataForm.getDirector(),
+                concertDataForm.getActor());
+        return "redirect:/products";
+    }
+
 
 }

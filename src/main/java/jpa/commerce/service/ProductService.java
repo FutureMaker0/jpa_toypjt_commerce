@@ -47,4 +47,13 @@ public class ProductService {
         return productRepository.findAllProducts();
     }
 
+    @Transactional
+    public void updateProduct(Long productId, String name, int price, int stockQuantity, String director, String actor) {
+        Concert product = (Concert) productRepository.findProductById(productId);
+        product.setName(name);
+        product.setPrice(price);
+        product.setStockQuantity(stockQuantity);
+        product.setDirector(director);
+        product.setActor(actor);
+    }
 }
