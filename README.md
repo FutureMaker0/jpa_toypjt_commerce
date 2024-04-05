@@ -184,8 +184,10 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
               - controller
                 - HomeController
                 - MemberController
+                - ProductController
               - form
                 - MemberDataForm
+                - ConcertDataForm
             - exception
               - StockUnderZeroException()
   - test
@@ -229,6 +231,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 
 ### 서비스 개발
   - OrderService(주문 서비스)는, 주문(Order) 엔티티와 주문상품(OrderProduct) 엔티티 내 비즈니스 로직을 사용하여 주문 "등록", 주문 "취소", 조건에 따른 주문 "검색" 기능을 제공한다.
+  - Product 엔티티에는 Food, Book, Concert 세 가지가 상속되는데, 본 프로젝트에서는 Concert 객체를 기준으로 Product 관련 MVC 패턴을 구현한다.
 
 ### thymeleaf 관련 사항
   - 타임리프에서 ?를 사용할 경우 null 값을 무시한다.
