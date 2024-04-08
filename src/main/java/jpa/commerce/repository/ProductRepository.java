@@ -15,6 +15,7 @@ public class ProductRepository {
     private final EntityManager em;
 
     // 상품등록
+    // 등록 및 수정을 한꺼번에 커버하기 위해 save()로 메서드명 변경하는 것 고려. (변경 감지, 합병)
     public void regist(Product product) {
         if (product.getId() == null) {
             em.persist(product);
