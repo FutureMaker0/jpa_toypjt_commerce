@@ -72,8 +72,8 @@ public class OrderService {
     /**
      * 주문 검색하기
      */
-//    public List<Order> findOrdersBySearchOption(SearchOption searchOption) {
-//        return orderRepository.findAllOrders(searchOption);
-//    }
+    public List<Order> findOrdersBySearchOption(SearchOption searchOption) {
+        return orderRepository.findAllOrders(searchOption);
+    }
 
 }

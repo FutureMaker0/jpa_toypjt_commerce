@@ -1,6 +1,8 @@
 package jpa.commerce.web.controller;
 
 import jpa.commerce.domain.Member;
+import jpa.commerce.domain.Order;
+import jpa.commerce.domain.SearchOption;
 import jpa.commerce.domain.product.Product;
 import jpa.commerce.service.MemberService;
 import jpa.commerce.service.OrderService;
@@ -8,9 +10,7 @@ import jpa.commerce.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,9 +40,21 @@ public class OrderController {
                               @RequestParam("count") int count) {
 
         orderService.registOrder(memberId, productId, count);
-        return "redirect:/orderList";
+        return "redirect:/orders";
     }
 
+    @GetMapping("/orders")
+    public String orderList(@ModelAttribute("searchOption") SearchOption searchOption, Model model) {
+        List<Order> allOrdersBySearchOption = orderService.findOrdersBySearchOption(searchOption);
+        model.addAttribute("orders", allOrdersBySearchOption);
 
+        return "orders/orderList";
+    }
+
+    @PostMapping("/orders/{orderId}/cancel")
+    public String orderCancel(@PathVariable("orderId") Long orderId) {
+        orderService.cancelOrder(orderId);
+        return "redirect:/orders";
+    }
 
 }
