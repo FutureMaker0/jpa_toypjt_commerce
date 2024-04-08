@@ -30,9 +30,9 @@
                 <tr>
                     <th>#</th>
                     <th>회원이름</th>
-                    <th>대표상품 명</th>
-                    <th>대표상품 주문가격</th>
-                    <th>대표상품 주문수량</th>
+                    <th>상품명</th>
+                    <th>주문가격</th>
+                    <th>주문수량</th>
                     <th>주문상태</th>
                     <th>주문일시</th>
                     <th></th>
@@ -42,14 +42,31 @@
                 <tr th:each="order : ${orders}">
                     <td th:text="${order.id}"></td>
                     <td th:text="${order.member.name}"></td>
-                    <td th:text="${order.orderProducts[0].product.name}"></td>
-                    <td th:text="${order.orderProducts[0].orderPrice}"></td>
-                    <td th:text="${order.orderProducts[0].count}"></td>
+
+                    <td>
+                        <div th:each="orderProduct : ${order.orderProducts}">
+                            <span th:text="${orderProduct.product.name}"></span>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div th:each="orderProduct : ${order.orderProducts}">
+                            <span th:text="${orderProduct.orderPrice}"></span>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div th:each="orderProduct : ${order.orderProducts}">
+                            <span th:text="${orderProduct.count}"></span>
+                        </div>
+                    </td>
+
                     <td th:text="${order.orderStatus}"></td>
                     <td th:text="${order.orderDate}"></td>
                     <td>
                         <a th:if="${order.orderStatus.name() == 'ORDER'}" href="#"
-                        th:href="'javascript:cancel('+${order.id}+')'" class="btn btn-danger">주문취소</a>
+                           th:href="'javascript:cancel('+${order.id}+')'"
+                           class="btn btn-danger">주문취소</a>
                     </td>
                 </tr>
             </tbody>
@@ -66,7 +83,7 @@
     function cancel(id) {
         var form = document.createElement("form");
         form.setAttribute("method", "post");
-        form.setAttribute("action", "orders/" + id + "/cancel");
+        form.setAttribute("action", "/orders/" + id + "/cancel");
         document.body.appendChild(form);
         form.submit();
     }
