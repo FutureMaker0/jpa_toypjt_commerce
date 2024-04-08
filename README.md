@@ -185,6 +185,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
                 - HomeController
                 - MemberController
                 - ProductController
+                - OrderController
               - form
                 - MemberDataForm
                 - ConcertDataForm
@@ -213,8 +214,8 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 ### 자주 쓰는 @어노테이션
   - @Autowired: Spring 프레임워크에서 사용되며, 주로 Service, Repository, Controller와 같은 스프링 빈을 주입할 떄 사용된다. EntityManager를 주입받을 때도 물론 사용이 가능하다.
   - @Repository: 리포지토리 클래스를 스프링 빈으로 등록, JPA Exception을 스프링 기반 Exception으로 변환
-  - @Service:
-  - @Controller: 
+  - @Service: 트랜잭션 기반으로 동작하는 실제 서비스 로직이 구현되는 계층.
+  - @Controller: 웹 계층으로 맵핑 및 페이지 렌더링을 구현하기 위한 계층.
   - @PersistenceContext: EntityManager 주입(Injection) 받을때 쓴다. JPA를 사용할 시, jpa 관련 기능을 사용하는 클래스에서 EntityManager를 주입받을 때 사용된다.
   - @PersistenceUnit: EntityManagerFactory 주입
   - @Autowired: 스프링 필드 주입 시 사용, 이 방법을 쓰기보다는 생성자 주입을 사용하는 것이 좋다.
@@ -225,6 +226,8 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - test 메서드에서 @Transactional은 일반 메서드에서와 조금 다르게 동작한다. 디폴트 동작값으로 트랜잭션이 "RollBack" 된다. --> 테스트 코드에 한해서 반복 가능한 테스트 지원.
   - @SpringBootTest: test 코드 상단에 기본 값으로 넣어주는 어노테이션, SpringBoot 띄우고 테스트(@Autowired 활성화를 위해 반드시 필요)
   - @RunWith(SpringRunner.class): 스프링과 테스트 통합하여 진행
+  - @PathVariable(" "): 
+  - @ModelAttribute(" "): 
 
 ### 리포지토리 개발
   - 
