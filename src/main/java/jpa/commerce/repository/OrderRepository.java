@@ -1,15 +1,16 @@
 package jpa.commerce.repository;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
-import jpa.commerce.domain.Order;
-import jpa.commerce.domain.QMember;
-import jpa.commerce.domain.QOrder;
-import jpa.commerce.domain.SearchOption;
+import jpa.commerce.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
+
+import static jpa.commerce.domain.QMember.member;
 
 @Repository
 @RequiredArgsConstructor
@@ -34,9 +35,23 @@ public class OrderRepository {
                 .select(order)
                 .from(order)
                 .join(order.member, member)
-                .where()
+                .where(findByName(searchOption.getMemberName()), findByStatus(searchOption.getOrderStatus()))
                 .limit(100)
                 .fetch();
+    }
+
+    private static BooleanExpression findByName(String name) {
+        if (!StringUtils.hasText(name)) {
+            return null;
+        }
+        return member.name.like(name);
+    }
+
+    private static BooleanExpression findByStatus(OrderStatus orderStatus) {
+        if (orderStatus == null) {
+            return null;
+        }
+        return QOrder.order.orderStatus.eq(orderStatus);
     }
 
 }

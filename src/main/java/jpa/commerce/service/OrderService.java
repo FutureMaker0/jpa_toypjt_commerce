@@ -63,7 +63,9 @@ public class OrderService {
     /**
      * 주문 취소하기
      * orderId 값으로 특정 주문 조회한 다음, 미리 정의해놓은 메소드 활용하여 주문 취소
+     * @Transactional 기반으로 돈다.
      */
+    @Transactional
     public void cancelOrder(Long orderId) {
         Order findOrder = orderRepository.findOrderById(orderId);
         findOrder.orderCancel();
