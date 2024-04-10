@@ -20,13 +20,13 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 
 ## 엔티티 기능 요구사항
   - Member
-    - CREATE(regist())
+    - CREATE(registMember())
     - READ(list())
   - Product
-    - CREATE(regist())
-    - UPDATE(edit())
-    - READ(list())
-    - DELETE(destroy()) : 추후
+    - CREATE(registProduct())
+    - UPDATE(updateProduct())
+    - READ(findAllProducts())
+    - DELETE(deleteProduct()) : 추후
   - Order
     - CREATE(regist())
     - READ
