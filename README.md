@@ -22,7 +22,8 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - Member
     - CREATE(registMember())
     - READ(list())
-    - UPDATE(updateMember()) : 추후
+    - UPDATE(updateMember())
+    - DELETE(deleteMember()) : 추후
   - Product
     - CREATE(registProduct())
     - UPDATE(updateProduct())
