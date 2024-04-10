@@ -44,5 +44,11 @@ public abstract class Product {
         this.stockQuantity = restStock;
     }
 
+//    /**
+//     * 상품 삭제 로직
+//     */
+//    public void deleteProduct() {
+//
+//    }
 
 }

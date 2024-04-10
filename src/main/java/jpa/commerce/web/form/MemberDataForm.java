@@ -1,6 +1,8 @@
 package jpa.commerce.web.form;
 
+import jakarta.persistence.Embedded;
 import jakarta.validation.constraints.NotEmpty;
+import jpa.commerce.domain.Address;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,4 +16,5 @@ public class MemberDataForm {
     private String country;
     private String city;
     private String zipcode;
+
 }

@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -48,6 +50,31 @@ public class MemberController {
         List<Member> allMembers = memberService.findAllMembers();
         model.addAttribute("allMembers", allMembers);
         return "members/memberList";
+    }
+
+    @GetMapping("/members/{memberId}/edit")
+    public String updateForm(@PathVariable("memberId") Long memberId, Model model) {
+        Member findMember = memberService.findMemberById(memberId);
+        MemberDataForm memberDataForm = new MemberDataForm();
+        memberDataForm.setName(findMember.getName());
+        memberDataForm.setCountry(findMember.getAddress().getCountry());
+        memberDataForm.setCity(findMember.getAddress().getCity());
+        memberDataForm.setZipcode(findMember.getAddress().getZipcode());
+
+        model.addAttribute("memberDataForm", memberDataForm);
+        return "members/updateMemberForm";
+    }
+
+    @PostMapping("/members/{memberId}/edit")
+    public String updateMember(@PathVariable("memberId") Long memberId,
+                               @ModelAttribute("memberDataForm") MemberDataForm memberDataForm) {
+        memberService.updateMember(memberId,
+                memberDataForm.getName(),
+                memberDataForm.getCountry(),
+                memberDataForm.getCity(),
+                memberDataForm.getZipcode());
+
+        return "redirect:/members";
     }
 
 

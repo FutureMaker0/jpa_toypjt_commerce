@@ -1,5 +1,6 @@
 package jpa.commerce.service;
 
+import jpa.commerce.domain.Address;
 import jpa.commerce.domain.Member;
 import jpa.commerce.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -47,4 +48,12 @@ public class MemberService {
         return memberRepository.findMemberById(memberId);
     }
 
+    @Transactional
+    public void updateMember(Long memberId, String name, String country, String city, String zipcode) {
+        Member member = memberRepository.findMemberById(memberId);
+        Address address = new Address(country, city, zipcode);
+
+        member.setName(name);
+        member.setAddress(address);
+    }
 }
