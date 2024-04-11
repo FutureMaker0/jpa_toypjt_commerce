@@ -32,8 +32,8 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - Order
     - CREATE(registOrder())
     - READ(findAllOrders())
-    - UPDATE(updateOrder()): 추후
-    - DELETE(deleteOrder()) : 추후
+    - UPDATE(updateOrder()) : 추후(추가 고려사항 많음)
+    - DELETE(deleteOrder())
       
   - 기타 요구사항(기본)
     - 상품은 재고 관리를 해야한다. 주문 및 주문취소 시 재고 수량 조정
