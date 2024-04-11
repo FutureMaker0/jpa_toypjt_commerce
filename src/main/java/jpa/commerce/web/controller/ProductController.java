@@ -67,7 +67,12 @@ public class ProductController {
     }
 
     @PostMapping("/products/{productId}/edit")
-    public String updateProduct(@PathVariable("productId") Long productId, @ModelAttribute("concertDataForm") ConcertDataForm concertDataForm) {
+    public String updateProduct(@PathVariable("productId") Long productId,
+                                @Validated ConcertDataForm concertDataForm,
+                                BindingResult errorResult) {
+        if (errorResult.hasErrors()) {
+            return "products/updateProductForm";
+        }
         productService.updateProduct(productId,
                 concertDataForm.getName(),
                 concertDataForm.getPrice(),

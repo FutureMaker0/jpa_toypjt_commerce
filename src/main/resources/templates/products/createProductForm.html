@@ -2,7 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header" />
 <style>
-  <!--  validation 시 붉은 라인 표시, 일단 생략 -->
+  .fieldError {
+    border-color: #bd2130;
+    }
 </style>
 
 <body>
@@ -20,12 +22,16 @@
 
     <div class="form-group">
       <label th:for="price">가격</label>
-      <input type="text" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요." />
+      <input type="text" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요."
+             th:class="${#fields.hasErrors('price')}? 'form-control fieldError' : 'form-control'" />
+      <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">올바른 범위의 가격 정보를 입력해주세요.</p>
     </div>
 
     <div class="form-group">
       <label th:for="stockQuantity">재고수량</label>
-      <input type="text" th:field="*{stockQuantity}" class="form-control" placeholder="재고수량을 입력하세요." />
+      <input type="text" th:field="*{stockQuantity}" class="form-control" placeholder="재고수량을 입력하세요."
+             th:class="${#fields.hasErrors('stockQuantity')}? 'form-control fieldError' : 'form-control'" />
+      <p th:if="${#fields.hasErrors('stockQuantity')}" th:errors="*{stockQuantity}">올바른 범위 내 재고수량을 입력해주세요.</p>
     </div>
 
     <div class="form-group">
