@@ -36,6 +36,7 @@
                     <th>주문상태</th>
                     <th>주문일시</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -63,10 +64,15 @@
 
                     <td th:text="${order.orderStatus}"></td>
                     <td th:text="${order.orderDate}"></td>
+
+                    <td>
+                        <a href="#" th:href="@{/orders/{id}/edit (id=${order.id})}" class="btn btn-primary" role="button">EDIT</a>
+                    </td>
+
                     <td>
                         <a th:if="${order.orderStatus.name() == 'ORDER'}" href="#"
                            th:href="'javascript:cancel('+${order.id}+')'"
-                           class="btn btn-danger">주문취소</a>
+                           class="btn btn-danger">CANCEL</a>
                     </td>
                 </tr>
             </tbody>

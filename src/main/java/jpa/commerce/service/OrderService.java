@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Array;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +61,10 @@ public class OrderService {
         return order.getId();
     }
 
+    public Order findOrderById(Long orderId) {
+        return orderRepository.findOrderById(orderId);
+    }
+
     /**
      * 주문 취소하기
      * orderId 값으로 특정 주문 조회한 다음, 미리 정의해놓은 메소드 활용하여 주문 취소
@@ -77,5 +82,10 @@ public class OrderService {
     public List<Order> findOrdersBySearchOption(SearchOption searchOption) {
         return orderRepository.findAllOrders(searchOption);
     }
+
+//    public void updateOrder(Long orderId, List<Member> members, List<Product> products, int count) {
+//        Order findOrder = orderRepository.findOrderById(orderId);
+//
+//    }
 
 }

@@ -2,11 +2,13 @@ package jpa.commerce.web.controller;
 
 import jpa.commerce.domain.Member;
 import jpa.commerce.domain.Order;
+import jpa.commerce.domain.OrderProduct;
 import jpa.commerce.domain.SearchOption;
 import jpa.commerce.domain.product.Product;
 import jpa.commerce.service.MemberService;
 import jpa.commerce.service.OrderService;
 import jpa.commerce.service.ProductService;
+import jpa.commerce.web.form.OrderDataForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,5 +58,38 @@ public class OrderController {
         orderService.cancelOrder(orderId);
         return "redirect:/orders";
     }
+
+
+
+    /*
+    @GetMapping("/orders/{orderId}/edit")
+    public String updateForm(@PathVariable("orderId") Long orderId, @RequestParam("count") int count, Model model) {
+
+        List<Member> allMembers = memberService.findAllMembers();
+        List<Product> allProducts = productService.findAllProducts();
+
+        OrderDataForm orderDataForm = new OrderDataForm();
+
+        orderDataForm.setMembers(allMembers);
+        orderDataForm.setProducts(allProducts);
+        orderDataForm.setCount(count);
+
+        model.addAttribute("orderDataForm", orderDataForm);
+        return "orders/updateOrderForm";
+    }
+
+    @PostMapping("/orders/{orderId}/edit")
+    public String updateOrder(@PathVariable("orderId") Long orderId, @ModelAttribute("orderDataForm") OrderDataForm orderDataForm) {
+
+        orderService.updateOrder(orderId,
+                orderDataForm.getMembers(),
+                orderDataForm.getProducts(),
+                orderDataForm.getCount()
+        );
+
+        return "redirect:/orders";
+    }
+     */
+
 
 }
