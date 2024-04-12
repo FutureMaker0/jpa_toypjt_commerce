@@ -266,6 +266,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - messages.properties/messages_en.properties를 두고, 서비스 전체적으로 사용되며 공통되는 메시지를 관리하도록 하였다.
     - 스프링부트에서 제공하는 messageSource를 활용하여 메시지 기능을 적용함으로써, 유지보수 시 불필요한 시간낭비와 코드 수정을 위한 업무 효율의 향상을 기대할 수 있다.
     - th:text="#{ }" 타임리프 문법을 통해 messages.properties에 정의된 메시지들을 가져와서 적용할 수 있다.
+    - 본 프로젝트에서는 상품 등록을 위한 createProductForm.html에 메시지 기능이 적용되어 동작하도록 구현하였다.
   - 국제화
     -
 
