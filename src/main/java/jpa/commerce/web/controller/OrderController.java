@@ -60,36 +60,27 @@ public class OrderController {
     }
 
 
-
     /*
     @GetMapping("/orders/{orderId}/edit")
-    public String updateForm(@PathVariable("orderId") Long orderId, @RequestParam("count") int count, Model model) {
-
-        List<Member> allMembers = memberService.findAllMembers();
-        List<Product> allProducts = productService.findAllProducts();
-
+    public String updateForm(@PathVariable("orderId") Long orderId,
+                             @RequestParam("orderCount") int count,
+                             Model model) {
         OrderDataForm orderDataForm = new OrderDataForm();
-
-        orderDataForm.setMembers(allMembers);
-        orderDataForm.setProducts(allProducts);
-        orderDataForm.setCount(count);
+        orderDataForm.setCount((count);
 
         model.addAttribute("orderDataForm", orderDataForm);
         return "orders/updateOrderForm";
     }
 
     @PostMapping("/orders/{orderId}/edit")
-    public String updateOrder(@PathVariable("orderId") Long orderId, @ModelAttribute("orderDataForm") OrderDataForm orderDataForm) {
+    public String updateOrder(@PathVariable("orderId") Long orderId,
+                              @ModelAttribute("orderDataForm") OrderDataForm orderDataForm) {
 
-        orderService.updateOrder(orderId,
-                orderDataForm.getMembers(),
-                orderDataForm.getProducts(),
-                orderDataForm.getCount()
-        );
+        orderService.updateOrder(orderId, orderDataForm.getOrderCount());
 
         return "redirect:/orders";
     }
-     */
+    */
 
 
 }

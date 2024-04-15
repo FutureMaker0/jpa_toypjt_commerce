@@ -83,9 +83,9 @@ public class OrderService {
         return orderRepository.findAllOrders(searchOption);
     }
 
-//    public void updateOrder(Long orderId, List<Member> members, List<Product> products, int count) {
+//    @Transactional
+//    public void updateOrder(Long orderId, int orderCount) {
 //        Order findOrder = orderRepository.findOrderById(orderId);
-//
 //    }
 
 }

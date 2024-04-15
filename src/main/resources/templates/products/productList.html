@@ -6,14 +6,19 @@
 
 <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+    <div class="py-5 text-center">
+        <h2 th:text="#{list.products}">상품 목록</h2>
+    </div>
+
     <div>
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>#</th>
-                <th>상품명</th>
-                <th>가격</th>
-                <th>재고수량</th>
+                <th th:text="#{label.product.name}">상품명</th>
+                <th th:text="#{label.product.price}">가격</th>
+                <th th:text="#{label.product.stockQuantity}">재고수량</th>
                 <th>감독</th>
                 <th>배우</th>
                 <th></th>
