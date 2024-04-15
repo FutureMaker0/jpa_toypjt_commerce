@@ -261,12 +261,11 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - Hibernate등에서 제공하는 검증 라이브러리를 적극 활용하여, 별도의 커스텀된 에러나 익셉션 처리 없이, validation 결과를 클라이언트 화면에 렌더링하는 방식으로 구현하였다.
   - 사용한 검증 어노테이션: @NotEmpty, @NotNull, @Range, @Validation(Controller 계층)
 
-### 메시지 및 국제화 적용
+### 메시지 및 국제화 적용 - Product Entity에 적용(상품 등록, 상품 목록 조회, 상품 수정)
   - 메시지
     - messages.properties/messages_en.properties를 두고, 서비스 전체적으로 사용되며 공통되는 메시지를 관리하도록 하였다.
     - 스프링부트에서 제공하는 messageSource를 활용하여 메시지 기능을 적용함으로써, 유지보수 시 불필요한 시간낭비와 코드 수정을 위한 업무 효율의 향상을 기대할 수 있다.
     - th:text="#{ }" 타임리프 문법을 통해 messages.properties에 정의된 메시지들을 가져와서 적용할 수 있다.
-    - 본 프로젝트에서는 상품 등록을 위한 createProductForm.html에 메시지 기능이 적용되어 동작하도록 구현하였다.
   - 국제화
     - 브라우저에서 우선순위 언어를 설정해주어 어떤 properties 파일이 선택될지 자동으로 결정되며 렌더링 시 자옹 적용된다. (Accept-language를 사용하여 클라이언트가 서버에 기대하는 언어 정보를 HTTP 요청 헤더를 통해 요청.)
 
