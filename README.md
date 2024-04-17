@@ -262,6 +262,9 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - Hibernate등에서 제공하는 검증 라이브러리를 적극 활용하여, 별도의 커스텀된 에러나 익셉션 처리 없이, validation 결과를 클라이언트 화면에 렌더링하는 방식으로 구현하였다.
   - 사용한 검증 어노테이션: @NotEmpty, @NotNull, @Range, @Validation(Controller 계층)
 
+### Exception
+  - 
+
 ### 메시지 및 국제화 적용 - Product Entity에 적용(상품 등록, 상품 목록 조회, 상품 수정)
   - 메시지
     - message 기능은 위치 정보('Locale') 정보를 알아야 언어를 선택할 수 있다. 결국 스프링도 locale 정보를 알아야 언어를 선택할 수 있다.
