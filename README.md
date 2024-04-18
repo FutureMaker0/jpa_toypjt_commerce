@@ -263,7 +263,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - 사용한 검증 어노테이션: @NotEmpty, @NotNull, @Range, @Validation(Controller 계층)
 
 ### Exception
-  - 
+  - StockUnderZeroException: 클라이언트의 주문 수량이 재고수량보다 많아 음수값으로 떨어질 경우 발생시키는 에러로, Product 엔티티의 재고수량 계산 비즈니스 로직에서 처리.
 
 ### 메시지 및 국제화 적용 - Product Entity에 적용(상품 등록, 상품 목록 조회, 상품 수정)
   - 메시지
