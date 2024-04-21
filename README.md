@@ -309,8 +309,9 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - ProductController 구현 시, Controller에 파라미터로 넘어온 product 엔티티의 인스턴스는 준영속 상태로 존재한다. 그러므로 영속성 컨텍스트의 지원을 받을 수 없고 데이터를 수정해도 변경감지 기능이 동작하지 않았다.
     -> @Transactional 적용을 통한 trouble shooting
   - 주문취소 orderCancel()는 OrderService() 계층에 구현되어 있다. 서비스 계층의 메서드는 트랜잭션 하에서 동작한다. 코드 에러가 없고 정상실행 되는데 로직이 수행되지 않을 경우 트랜잭션이 제대로 적용되었는지 확인해볼 필요가 있다.
-  - 파일 업로드 구현 시 에러 발생 (Caused by: org.hibernate.AnnotationException: Entity 'jpa.commerce.domain.product.UploadFile' has no identifier (every '@Entity' class must declare or
+  - 파일 업로드 구현 시 발생 에러 1 (Caused by: org.hibernate.AnnotationException: Entity 'jpa.commerce.domain.product.UploadFile' has no identifier (every '@Entity' class must declare or
     inherit at least one '@Id' or '@EmbeddedId' property)
-
+  - 파일 업로드 구현 시 발생 에러 2 (Caused by: org.hibernate.type.descriptor.java.spi.JdbcTypeRecommendationException: Could not determine recommended JdbcType for Java type
+    'jpa.commerce.domain.product.UploadFile')
 
   
