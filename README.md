@@ -313,6 +313,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     inherit at least one '@Id' or '@EmbeddedId' property)
   - 파일 업로드 구현 시 발생 에러 2 (Caused by: org.hibernate.type.descriptor.java.spi.JdbcTypeRecommendationException: Could not determine recommended JdbcType for Java type
     'jpa.commerce.domain.product.UploadFile')
-  - 파일 업로드 구현 시 발생 에러 3 (Caused by: java.lang.NoSuchMethodException: jpa.commerce.domain.product.UploadFile$HibernateProxy$QMf2455n.<init>()
+  - 파일 업로드 구현 시 발생 에러 3 (Caused by: java.lang.NoSuchMethodException: jpa.commerce.domain.product.UploadFile$HibernateProxy$QMf2455n.<init>(): UploadFile의 기본 생성자가 존재하지 않아
+    Hibernate가 발생시키는 에러. protected UploadFile() {} 기본 생성자 선언을 통해 해결하였다.
 
   
