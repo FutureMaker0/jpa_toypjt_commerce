@@ -18,6 +18,8 @@ public class QProduct extends EntityPathBase<Product> {
 
     private static final long serialVersionUID = -1390407674L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QProduct product = new QProduct("product");
 
     public final ListPath<jpa.commerce.domain.Category, jpa.commerce.domain.QCategory> categories = this.<jpa.commerce.domain.Category, jpa.commerce.domain.QCategory>createList("categories", jpa.commerce.domain.Category.class, jpa.commerce.domain.QCategory.class, PathInits.DIRECT2);
@@ -30,16 +32,27 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final NumberPath<Integer> stockQuantity = createNumber("stockQuantity", Integer.class);
 
+    public final QUploadFile uploadFile;
+
     public QProduct(String variable) {
-        super(Product.class, forVariable(variable));
+        this(Product.class, forVariable(variable), INITS);
     }
 
     public QProduct(Path<? extends Product> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QProduct(PathMetadata metadata) {
-        super(Product.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QProduct(PathMetadata metadata, PathInits inits) {
+        this(Product.class, metadata, inits);
+    }
+
+    public QProduct(Class<? extends Product> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.uploadFile = inits.isInitialized("uploadFile") ? new QUploadFile(forProperty("uploadFile")) : null;
     }
 
 }

@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,39 +18,59 @@ public class QConcert extends EntityPathBase<Concert> {
 
     private static final long serialVersionUID = -129909315L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QConcert concert = new QConcert("concert");
 
-    public final QProduct _super = new QProduct(this);
+    public final QProduct _super;
 
     public final StringPath actor = createString("actor");
 
     //inherited
-    public final ListPath<jpa.commerce.domain.Category, jpa.commerce.domain.QCategory> categories = _super.categories;
+    public final ListPath<jpa.commerce.domain.Category, jpa.commerce.domain.QCategory> categories;
 
     public final StringPath director = createString("director");
 
     //inherited
-    public final NumberPath<Long> id = _super.id;
+    public final NumberPath<Long> id;
 
     //inherited
-    public final StringPath name = _super.name;
+    public final StringPath name;
 
     //inherited
-    public final NumberPath<Integer> price = _super.price;
+    public final NumberPath<Integer> price;
 
     //inherited
-    public final NumberPath<Integer> stockQuantity = _super.stockQuantity;
+    public final NumberPath<Integer> stockQuantity;
+
+    // inherited
+    public final QUploadFile uploadFile;
 
     public QConcert(String variable) {
-        super(Concert.class, forVariable(variable));
+        this(Concert.class, forVariable(variable), INITS);
     }
 
     public QConcert(Path<? extends Concert> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QConcert(PathMetadata metadata) {
-        super(Concert.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QConcert(PathMetadata metadata, PathInits inits) {
+        this(Concert.class, metadata, inits);
+    }
+
+    public QConcert(Class<? extends Concert> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this._super = new QProduct(type, metadata, inits);
+        this.categories = _super.categories;
+        this.id = _super.id;
+        this.name = _super.name;
+        this.price = _super.price;
+        this.stockQuantity = _super.stockQuantity;
+        this.uploadFile = _super.uploadFile;
     }
 
 }

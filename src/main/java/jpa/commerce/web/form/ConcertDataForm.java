@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,5 +30,9 @@ public class ConcertDataForm {
 
     private String director;
     private String actor;
+
+    // 파일 업로드 추가
+    private MultipartFile uploadFile;
+    //private List<MultipartFile> uploadFileList;
 
 }
