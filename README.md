@@ -313,5 +313,6 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     inherit at least one '@Id' or '@EmbeddedId' property)
   - 파일 업로드 구현 시 발생 에러 2 (Caused by: org.hibernate.type.descriptor.java.spi.JdbcTypeRecommendationException: Could not determine recommended JdbcType for Java type
     'jpa.commerce.domain.product.UploadFile')
+  - 파일 업로드 구현 시 발생 에러 3 (Caused by: java.lang.NoSuchMethodException: jpa.commerce.domain.product.UploadFile$HibernateProxy$QMf2455n.<init>()
 
   
