@@ -339,6 +339,12 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     ```java
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<UploadFile> uploadFileList = new ArrayList<>();
+
+    이는 Product 엔티티의 uploadFileList 필드에 대한 매핑에서 발생한 문제입니다. uploadFileList 필드가 Product 엔티티에 있고, mappedBy로 products라는 속성을 지정하고 있는데, 이 속성이 UploadFile 엔티티에 존재하지
+    않는다고 나와있습니다.
+    이러한 에러는 보통 양방향 연관 관계의 설정이 잘못되었을 때 발생합니다. mappedBy 속성은 관계의 주인이 아닌 엔티티에서만 사용되어야 합니다. uploadFileList 필드가 Product 엔티티에 있으므로, 해당 필드가 관계의 주인이며,
+    mappedBy 속성은 사용하지 않아야 합니다.
+    해결책으로는 Product 엔티티의 uploadFileList 필드에 대한 매핑에서 mappedBy 속성을 제거하면 됩니다. 이렇게 하면 Product 엔티티가 연관 관계의 주인이 되어 해당 에러가 해결될 것입니다.
     ```
     
 
