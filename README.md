@@ -16,6 +16,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - Order
   - Delivery
   - Address(Value Type)
+  - UploadFile(추가)
   - Etc
 
 ## 엔티티 기능 요구사항
@@ -40,6 +41,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - 상품은 카테고리로 분류할 수 있다.
     - 상품의 종류는 Food, Book, Concert 가 있다.
     - 상품 주문 시 배송 정보를 입력할 수 있다.
+      
   - 기타 요구사항(심화)
     - 파라미터 Validation 및 Exception 예외 처리
     - 메시지 국제화
