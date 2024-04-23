@@ -28,12 +28,15 @@ public abstract class Product {
     @ManyToMany(mappedBy = "products")
     private List<Category> categories = new ArrayList<Category>();
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     //@JoinColumn(name = "uploadFile_id") // UploadFile 테이블에 외래키로 매핑될 컬럼 이름
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "uploadFileName")
     private UploadFile uploadFile;
 
-//    private List<UploadFile> uploadFileList;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<UploadFile> imageFileList;
+
+
 
     //== 비즈니스 로직 ==// 비즈니스 로직의 적절한 위치에 대해서는 충분한 고민이 필요.
     // 재고충당 및 주문취소 시 재고수량 원복

@@ -26,6 +26,8 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final ListPath<UploadFile, QUploadFile> imageFileList = this.<UploadFile, QUploadFile>createList("imageFileList", UploadFile.class, QUploadFile.class, PathInits.DIRECT2);
+
     public final StringPath name = createString("name");
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);

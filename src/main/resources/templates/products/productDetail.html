@@ -44,10 +44,18 @@
         </div>
 
         <div class="form-group">
-            <label th:for="uploadFile">첨부파일</label>
+            <label th:for="uploadFile">첨부파일(1개)</label>
             <a th:if="${findProduct.uploadFile}"
                th:href="|/download/${findProduct.id}|"
                th:text="${findProduct.getUploadFile().getUploadFileName()}"></a><br/>
+        </div>
+
+        <div class="form-group">
+            <label th:for="imageFileList">이미지파일(N개)</label><br/>
+            <img th:each="imageFile : ${findProduct.imageFileList}"
+                 th:src="|/images/${imageFile.getStoreFileName()}|"
+                 width="200"
+                 height="200"/>
         </div>
 
     </form>

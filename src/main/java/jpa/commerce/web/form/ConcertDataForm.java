@@ -33,6 +33,6 @@ public class ConcertDataForm {
 
     // 파일 업로드 추가
     private MultipartFile uploadFile;
-    //private List<MultipartFile> uploadFileList;
+    private List<MultipartFile> imageFileList;
 
 }

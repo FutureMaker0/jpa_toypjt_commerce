@@ -49,7 +49,7 @@ public class ProductController {
         }
 
         UploadFile uploadFile = fileStore.storeFile(concertDataForm.getUploadFile());
-//        List<UploadFile> uploadFileList = fileStore.storeFiles(concertDataForm.getUploadFileList());
+        List<UploadFile> imageFileList = fileStore.storeFiles(concertDataForm.getImageFileList());
 
         Concert concert = new Concert();
         concert.setName(concertDataForm.getName());
@@ -58,12 +58,13 @@ public class ProductController {
         concert.setDirector(concertDataForm.getDirector());
         concert.setActor(concertDataForm.getActor());
         concert.setUploadFile(uploadFile);
-//        concert.setUploadFileList(uploadFileList);
+        concert.setImageFileList(imageFileList);
 
         productService.registProduct(concert);
 
-//        redirectAttributes.addAttribute("productId", concert.getId());
-//        return "redirect:/products/{productId}";
+        //redirectAttributes.addAttribute("productId", concert.getId());
+        //return "redirect:/products/{productId}";
+
         return "redirect:/products";
     }
 
@@ -98,6 +99,14 @@ public class ProductController {
         String contentDisposition = "attachment; filename=\"" + encodedUploadFileName + "\"";
 
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition).body(resource);
+    }
+
+    //== 업로드 이미지파일들 깨짐(엑박) 없이 확인하기 위한 로직 ==//
+    @ResponseBody //이미지 파일의 경우 http와의 통신을 위해 어노테이션 필요
+    @GetMapping("/images/{imageName}")
+    public Resource downloadImage(@PathVariable("imageName") String imageName) throws MalformedURLException {
+        UrlResource resource = new UrlResource("file:" + fileStore.getFullPath(imageName));
+        return resource;
     }
 
     @GetMapping("/products/{productId}/edit")

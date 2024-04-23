@@ -32,6 +32,9 @@ public class QBook extends EntityPathBase<Book> {
     //inherited
     public final NumberPath<Long> id;
 
+    //inherited
+    public final ListPath<UploadFile, QUploadFile> imageFileList;
+
     public final StringPath isbn = createString("isbn");
 
     //inherited
@@ -67,6 +70,7 @@ public class QBook extends EntityPathBase<Book> {
         this._super = new QProduct(type, metadata, inits);
         this.categories = _super.categories;
         this.id = _super.id;
+        this.imageFileList = _super.imageFileList;
         this.name = _super.name;
         this.price = _super.price;
         this.stockQuantity = _super.stockQuantity;

@@ -21,7 +21,8 @@
                 <th th:text="#{label.product.stockQuantity}">재고수량</th>
                 <th>감독</th>
                 <th>배우</th>
-                <th>첨부파일</th>
+                <th>첨부파일(1개)</th>
+                <th>이미지파일(N개)</th>
                 <th>보기</th>
                 <th>편집</th>
             </tr>
@@ -36,6 +37,7 @@
                 <td th:text="${product.director}"></td>
                 <td th:text="${product.actor}"></td>
                 <td th:text="${product.uploadFile}"></td>
+                <td th:text="${product.imageFileList}"></td>
                 <td>
                     <a href="#" th:href="@{/products/{id} (id=${product.id})}" class="btn btn-primary" role="button">Detail</a>
                 </td>
