@@ -207,6 +207,17 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
                 - ConcertDataForm
             - exception
               - StockUnderZeroException()
+            - validInterface
+              - RegistCheck
+              - UpdateCheck
+            - file
+              - FileStore
+                - getFullPath()
+                - storeFile()
+                - storeFiles()
+                - createStoreFileName()
+                - extractExt()
+  
   - test
     - java
       - jpa
@@ -281,6 +292,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - 본 프로젝트에서는 별도의 LocaleResolver까지는 적용하지 않고, 설정 정보에서 클라이언트가 선택한 언어 우선순위에 따라 그에 맞는 메시지가 적용되도록 구현하였다.
 
 ### 파일 업로드
+  - 파일 관련 로직을 처리할 FileStore class 객체를 별도로 둔다. @Component 어노테이션을 통해 컴포넌트 스캔 시 스프링 빈으로 등록되도록 구현.
   - UploadFile 이라고 하는 별도 클래스 객체를 활용(객체 내 storeFileName, uploadFileName 필드 존재)
   - UploadFIle <> Product는 1:1 단방향으로 연관관계 매핑
   - 로컬 메모리를 활용하고 있으므로 PC 내 파일 저장 경로를 application.yml 설정 파일에 지정해주어야 한다.
