@@ -346,6 +346,15 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     mappedBy 속성은 사용하지 않아야 합니다.
     해결책으로는 Product 엔티티의 uploadFileList 필드에 대한 매핑에서 mappedBy 속성을 제거하면 됩니다. 이렇게 하면 Product 엔티티가 연관 관계의 주인이 되어 해당 에러가 해결될 것입니다.
     ```
+  - 이미지 파일 깨짐(엑박) 관련 트러블 및 해결방법
+    ```java
+    //== 업로드 이미지파일들 깨짐(엑박) 없이 확인하기 위한 로직 ==//
     
+    @GetMapping("/images/{imageName}")
+    public Resource downloadImage(@PathVariable("imageName") String imageName) throws MalformedURLException {
+        UrlResource resource = new UrlResource("file:" + fileStore.getFullPath(imageName));
+        return resource;
+    }
+    ```
 
   
