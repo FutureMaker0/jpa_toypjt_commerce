@@ -334,6 +334,12 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     Hibernate가 발생시키는 에러. protected UploadFile() {} 기본 생성자 선언을 통해 해결하였다.
   - 파일 업로드 구현 시 발생 에러 4 (java.io.FileNotFoundException: URL [file:/.../파일명.png] cannot be resolved in the file system for checking its content length): uploadFileName을 제대로
     읽어오지 못해서 에러 발생. 생성자 관련 코드를 적절히 수정하여 해결하였다.
-
+  - 복수 이미지파일 업로드 구현 시 발생 에러 5 (Caused by: org.hibernate.AnnotationException: Collection 'jpa.commerce.domain.product.Product.uploadFileList' is 'mappedBy' a property named
+    'product' which does not exist in the target entity 'jpa.commerce.domain.product.UploadFile')
+    ```java
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<UploadFile> uploadFileList = new ArrayList<>();
+    ```
+    
 
   
