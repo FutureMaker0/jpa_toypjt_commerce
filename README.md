@@ -355,6 +355,13 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
         UrlResource resource = new UrlResource("file:" + fileStore.getFullPath(imageName));
         return resource;
     }
+
+    @ResponseBody 어노테이션은 해당 메서드가 HTTP 응답의 본문(body)을 직접 생성하여 반환한다는 것을 나타냅니다. 이 어노테이션을 사용하면 메서드가 반환하는 객체가 HTTP 응답의 본문으로 전송되고, 스프링 MVC는 이를 적절하게 처리하여
+    클라이언트에게 반환합니다.
+    위의 코드에서 @ResponseBody 어노테이션이 붙은 downloadImage 메서드는 이미지 파일의 URL을 받아 해당 이미지 파일의 리소스를 반환하는 역할을 합니다. 이 메서드는 HTTP 요청을 받으면 해당 이미지 파일을 찾아서 응답의 본문으로
+    전송합니다.
+    @ResponseBody를 사용하지 않으면 스프링 MVC는 해당 메서드가 반환하는 객체를 뷰로 전달하여 렌더링하려고 시도할 것입니다. 그러나 이미지 파일의 경우에는 HTML이나 다른 마크업 형식으로 렌더링하는 것이 아니라, 직접 파일의 내용을 응답
+    본문으로 반환해야 합니다. 그래서 @ResponseBody를 사용하여 이 메서드가 직접 응답 본문을 생성하고 반환하도록 지정합니다.
     ```
 
   
