@@ -321,6 +321,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - th:value
     - th:text
     - th:for
+    - th:if / th:unless / th:else
 
 ### 개발 시 참고사항 및 주의사항
   - repository 내 메서드 정의 시, EntityManager를 통한 persist() / merge() 를 적절히 구분하여 활용 필요. 데이터베이스 저장 유무에 따라 어떤 것을 사용할지 결정. 보통 merge()는 실무에서 많이 사용하진 않는다.
