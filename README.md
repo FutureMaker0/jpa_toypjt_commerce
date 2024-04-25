@@ -265,7 +265,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - Product 엔티티에는 Food, Book, Concert 세 가지가 상속되는데, 본 프로젝트에서는 Concert 객체를 기준으로 Product 관련 MVC 패턴을 구현한다.
 
 ### 컨트롤러 개발
-  -
+  - lombok Slf4j 로그 활용법: log.info("Message: {}", variable);
   
 ### Validation
   - 데이터에 대한 검증은 엔티티 자체를 건드리지 않는 것을 기본으로 한다.
