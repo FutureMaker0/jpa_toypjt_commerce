@@ -255,7 +255,9 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - @SpringBootTest: test 코드 상단에 기본 값으로 넣어주는 어노테이션, SpringBoot 띄우고 테스트(@Autowired 활성화를 위해 반드시 필요)
   - @RunWith(SpringRunner.class): 스프링과 테스트 통합하여 진행
   - @PathVariable(" "): 
-  - @ModelAttribute(" "): 
+  - @ModelAttribute(" "):
+  - @JoinColumn: 엔티티 클래스의 필드(열)을 관계 테이블의 외래 키와 매핑할 때 사용. 관계의 주인을 나타내며, 일반적으로 양방향 연관관계에서 외래키를 관리하는 쪽을 주인으로 지정.
+  - @Column: 엔티티 클래스의 필드(열)를 테이블의 컬럼과 매핑할 때 사용. 필드의 이름을 테이블의 컬럼 이름과 매핑할 때 사용. nullable, unique, length등의 속성을 통해 값을 검증할 수 있다.
 
 ### 리포지토리 개발
   - 
