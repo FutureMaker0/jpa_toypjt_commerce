@@ -1,6 +1,5 @@
 package jpa.commerce.web.controller;
 
-import jpa.commerce.domain.product.Book;
 import jpa.commerce.domain.product.Concert;
 import jpa.commerce.domain.product.Product;
 import jpa.commerce.domain.product.UploadFile;
@@ -9,6 +8,7 @@ import jpa.commerce.service.ProductService;
 import jpa.commerce.web.form.ConcertDataForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -18,12 +18,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriUtils;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.util.List;
 
 @Controller
@@ -33,6 +36,9 @@ public class ProductController {
 
     private final ProductService productService;
     private final FileStore fileStore;
+
+    @Value("${file.dir}")
+    private String fileDir;
 
     @GetMapping("/products/regist")
     public String createForm(Model model) {
@@ -110,9 +116,12 @@ public class ProductController {
     }
 
     @GetMapping("/products/{productId}/edit")
-    public String updateForm(@PathVariable("productId") Long productId, Model model) {
+    public String updateForm(@PathVariable("productId") Long productId,
+                             Model model) {
         Concert findProduct = (Concert) productService.findProductById(productId); //형변환
-        log.info("findProduct name =", findProduct.getName());
+
+        //UploadFile uploadFile = findProduct.getUploadFile();
+        //List<UploadFile> imageFileList = findProduct.getImageFileList();
 
         ConcertDataForm concertDataForm = new ConcertDataForm();
         concertDataForm.setName(findProduct.getName());
@@ -120,9 +129,12 @@ public class ProductController {
         concertDataForm.setStockQuantity(findProduct.getStockQuantity());
         concertDataForm.setDirector(findProduct.getDirector());
         concertDataForm.setActor(findProduct.getActor());
+        //concertDataForm.setUploadFile(uploadFile);
+        //concertDataForm.setImageFileList(imageFileList);
 
         model.addAttribute("concertDataForm", concertDataForm);
-        return "products/UpdateProductForm";
+        return "products/updateProductForm";
+
     }
 
     @PostMapping("/products/{productId}/edit")
@@ -138,8 +150,10 @@ public class ProductController {
                 concertDataForm.getStockQuantity(),
                 concertDataForm.getDirector(),
                 concertDataForm.getActor());
+                //concertDataForm.getUploadFile());
+                //concertDataForm.getImageFileList());
+
         return "redirect:/products";
     }
-
 
 }

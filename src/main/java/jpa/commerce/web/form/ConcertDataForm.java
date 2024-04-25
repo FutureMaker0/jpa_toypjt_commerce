@@ -2,6 +2,7 @@ package jpa.commerce.web.form;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jpa.commerce.domain.product.UploadFile;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,4 +36,6 @@ public class ConcertDataForm {
     private MultipartFile uploadFile;
     private List<MultipartFile> imageFileList;
 
+//    private UploadFile uploadFileForForm;
+//    private List<UploadFile> imageFileListForForm;
 }

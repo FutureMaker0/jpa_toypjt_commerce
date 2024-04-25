@@ -3,10 +3,12 @@ package jpa.commerce.service;
 import jpa.commerce.domain.Category;
 import jpa.commerce.domain.product.Concert;
 import jpa.commerce.domain.product.Product;
+import jpa.commerce.domain.product.UploadFile;
 import jpa.commerce.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -48,14 +50,23 @@ public class ProductService {
     }
 
     @Transactional
-    public void updateProduct(Long productId, String name, int price, int stockQuantity, String director, String actor) {
+    public void updateProduct(Long productId,
+                              String name,
+                              int price,
+                              int stockQuantity,
+                              String director,
+                              String actor
+                              /*MultipartFile uploadFile*/
+                              /*List<MultipartFile> imageFileList*/) {
+
         Concert product = (Concert) productRepository.findProductById(productId);
         product.setName(name);
         product.setPrice(price);
         product.setStockQuantity(stockQuantity);
         product.setDirector(director);
         product.setActor(actor);
+        //product.setUploadFile((UploadFile) uploadFile);
+        //product.setImageFileList(imageFileList);
     }
-
 
 }
