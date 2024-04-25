@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header" />
+<style>
+    table {
+        table-layout: fixed;
+        border-spacing: 0; /* 테이블의 셀 사이의 간격을 0으로 설정합니다. */
+        border-collapse: collapse; /* 테이블의 테두리를 합칩니다. */
+    }
+    th, td {
+        width: 70px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 8px;
+    }
+</style>
 
 <body>
 
@@ -21,7 +34,7 @@
                 <th th:text="#{label.product.stockQuantity}">재고수량</th>
                 <th>감독</th>
                 <th>배우</th>
-                <th>첨부파일(1개)</th>
+                <th>첨부 파일(1개)</th>
                 <th>이미지파일(N개)</th>
                 <th>보기</th>
                 <th>편집</th>
@@ -36,8 +49,25 @@
                 <td th:text="${product.stockQuantity}"></td>
                 <td th:text="${product.director}"></td>
                 <td th:text="${product.actor}"></td>
-                <td th:text="${product.uploadFile}"></td>
-                <td th:text="${product.imageFileList}"></td>
+<!--                <td th:text="${product.uploadFile.uploadFileName}"></td>-->
+<!--                <td th:text="${product.imageFileList}"></td>-->
+
+                <td th:if="${product.uploadFile}">
+                    <span th:text="${product.uploadFile.uploadFileName}"></span>
+                </td>
+                <td th:unless="${product.uploadFile}">
+                    <span>-</span>
+                </td>
+
+                <td th:if="${product.imageFileList.size() > 0}">
+                    <span th:each="imageFile : ${product.imageFileList}">
+                        <span th:text="${imageFile.uploadFileName}"></span>
+                    </span>
+                </td>
+                <td th:unless="${product.imageFileList.size() > 0}">
+                    <span>-</span>
+                </td>
+
                 <td>
                     <a href="#" th:href="@{/products/{id} (id=${product.id})}" class="btn btn-primary" role="button">Detail</a>
                 </td>

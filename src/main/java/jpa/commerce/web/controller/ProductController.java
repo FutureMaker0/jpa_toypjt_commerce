@@ -37,8 +37,8 @@ public class ProductController {
     private final ProductService productService;
     private final FileStore fileStore;
 
-    @Value("${file.dir}")
-    private String fileDir;
+//    @Value("${file.dir}")
+//    private String fileDir;
 
     @GetMapping("/products/regist")
     public String createForm(Model model) {
@@ -55,7 +55,11 @@ public class ProductController {
         }
 
         UploadFile uploadFile = fileStore.storeFile(concertDataForm.getUploadFile());
+        log.info("uploadFileName = {}", uploadFile.getUploadFileName());
+        log.info("storeFileName = {}", uploadFile.getStoreFileName());
+
         List<UploadFile> imageFileList = fileStore.storeFiles(concertDataForm.getImageFileList());
+        log.info("imageFileList size = {}", String.valueOf(imageFileList.size()));
 
         Concert concert = new Concert();
         concert.setName(concertDataForm.getName());
