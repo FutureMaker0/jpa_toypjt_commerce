@@ -8,7 +8,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
   - jpa
   - querydsl
   - thymeleaf
-  - H2 database(Java DabaBase Connectivity 활용)
+  - H2 database(Java DabaBase Connectivity 활용) -> mySQL
 
 ## 엔티티
   - Member
@@ -381,4 +381,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     본문으로 반환해야 합니다. 그래서 @ResponseBody를 사용하여 이 메서드가 직접 응답 본문을 생성하고 반환하도록 지정합니다.
     ```
 
+  - mySQL 연동 시 발생 에러: 스프링부트 버전 업그레이드에 따라 의존성 주입 시 필요한 코드 변경. 스프링부트 버전에 맞는 의존성 주입 코드 사용하여 해결.
+    - springBoot 2.7.8 버전 이전: mysql:mysql-connector-java
+    - springBoot 2.7.8 버전 이후: com.mysql:mysql-connector-j
   
