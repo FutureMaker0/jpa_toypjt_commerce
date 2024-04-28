@@ -2,13 +2,14 @@
 jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 
 ## 기술 스택
-  - java
-  - spring
-  - springboot
-  - jpa
+  - Java
+  - Spring
+  - Springboot
+  - JPA
   - querydsl
   - thymeleaf
   - H2 database(Java DabaBase Connectivity 활용) -> mySQL
+  - Postman(REST API)
 
 ## 엔티티
   - Member
@@ -50,6 +51,11 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
     - 이미지 파일 업로드
     - 로그인 및 권한 인증
     - REST API
+      - 근래에는 렌더링 화면을 템플릿 페이지를 통해 구현하는 것보다, SPA(Vue, React)를 통해 많이 개발한다.
+      - 백엔드 서버 개발자 입장에서는 서버에서 렌더링 통해 html로 데이터를 내리는 작업의 필요성이 줄게 되었다.
+      - 그런 작업은 클라이언트 쪽 프런트 단에서 대부분 풀어내고, MSA로 트렌드가 바뀌어가며 백 단에서는 API를 통한 통신의 중요성이 높아지고 있다.
+      - 예전과 같이 단순 SQL 쿼리를 통해 API를 끌어오는 것과, JPA를 사용할 때의 API 설계하는 것은 다른 차원의 이야기이다.(엔티티라는 개념이 존재하기 떄문이다.)
+      - JPA를 기반으로 하면서 API 기반 통신이 가능하도록 구현한다.
       
 ## 도메인 모델과 테이블 간단 설계
 |순번|이미지|비고|
