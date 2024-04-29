@@ -60,7 +60,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 ## 도메인 모델과 테이블 간단 설계
 |순번|이미지|비고|
 |:---:|:-----:|:---:|
-|1|<img width="500" alt="스크린샷 2024-03-25 오후 4 05 18" src="https://github.com/FutureMaker0/django_webex/assets/120623320/b50d307c-7e30-4c20-8fe9-48e06fb276bb">||
+|1|<img width="500" alt="스크린샷 2024-04-29 오후 2 02 16" src="https://github.com/FutureMaker0/practical_developer_knowledge/assets/120623320/8a881ef7-8621-4c54-a167-13c0d925562c">||
 
 ### 간단 설명
   - N:N 매핑 관계 내용은 생략했으며, 추후 상세 표기 예정
