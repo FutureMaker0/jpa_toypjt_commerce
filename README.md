@@ -70,7 +70,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 ## 엔티티 분석
 |순번|이미지|비고|
 |:---:|:-----:|:---:|
-|1|<img width="500" alt="스크린샷 2024-04-29 오후 1 57 34" src="https://github.com/FutureMaker0/practical_developer_knowledge/assets/120623320/731fc464-d13e-4794-bacc-404cc673a63a">||
+|1|<img width="700" alt="스크린샷 2024-04-29 오후 1 57 34" src="https://github.com/FutureMaker0/practical_developer_knowledge/assets/120623320/731fc464-d13e-4794-bacc-404cc673a63a">||
 
 - Member(회원): name, address, List<Orders> 를 가진다.
 - Order(주문): 주문과 상품(주문상품)은 일대다 관계다. 주문은 주문의 주체인 회원정보, 배송정보, 주문날짜, 주문상태를 데이터를 가진다. 주문상태는 ENUM 타입으로 정의하며 [ORDER, CANCEL] 두 가지 상태를 가진다.
@@ -83,7 +83,7 @@ jpa 기반 커머스 웹 애플리케이션 토이 프로젝트 리포지토리
 ## 테이블 분석 - 실제 DB에 생성될 테이블과 인스턴스
 |순번|이미지|비고|
 |:---:|:-----:|:---:|
-|1|<img width="500" alt="스크린샷 2024-03-26 오전 11 58 02" src="https://github.com/FutureMaker0/django_webex/assets/120623320/71543f72-0ffa-44ea-bf46-2ba60bcef8ed">||
+|1|<img width="700" alt="스크린샷 2024-04-29 오후 2 04 52" src="https://github.com/FutureMaker0/practical_developer_knowledge/assets/120623320/5b7dffb0-1902-48a5-b9d6-96c9d79ca6ca">||
 
 - Member(회원): 임베디드 타입 address 정보가 Member, Delivery 테이블에 포함되었다.
 - Product(상품): Food, Book, Concert 세 가지 타입을 하나의 테이블로 통합했다. 이들의 구분은 DTYPE을 통해 한다.
